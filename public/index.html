@@ -1,0 +1,352 @@
+<!--
+  Student Name:
+  Student Number:
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>FlowTow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Include Handlebars from a CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+  <script src="./js/main.js" type=module defer></script>
+</head>
+
+<body>
+
+  <header>
+    <div id="logo"></div>
+    <nav>
+      <ul>
+        <li ><a href="#" onclick="toU(); toR();" >Home</a></li>
+        <li><a href="#!/all-posts">All Posts</a></li>
+        <li><a href="#!/my-posts">My Posts</a></li>
+        <li><a href="#whatis">About</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div id="login"></div>
+
+  <!-- <form id="addimage-form">
+    <label for=p_image> or Picture: </label>
+    <input name=p_image type=file accept=image/*>
+    <label for=p_caption> Caption</label>
+    <input name=p_caption>
+    <input type=submit value="Create a Post">
+  </form> -->
+
+
+  <!-- <form id="login-form">
+       <label for=username>User</label>
+       <input name=username>
+       <label for=password>Password:</label>
+       <input name=password type=password>
+       <input type=submit value="login">
+    </form> -->
+
+  <!-- <form id="addpost-form">
+      <lable for=p_url> New post(URL) </lable>
+      <input name=p_url>
+      <label for=p_caption> Caption</label>
+      <input name=p_caption>
+      <input type=submit value="Create a Post">
+    </form> -->
+
+  <!-- <form id="comment-form">
+    <lable for=c_content> Comment </lable>
+    <input name=c_content>
+    <input type=submit value="Add a Comment">
+  </form> -->
+
+  <div id="content">
+
+    <div id="heading">
+
+      <hgroup>
+        <h1>Welcome to FlowTow!</h1>
+
+      </hgroup>
+
+
+    </div>
+  </div>
+
+
+
+  <div id="main">
+    <div id="target">
+      <div id="posts">
+        <div class="bob-container"> 
+          <div class="bob-row">
+        <div class="flowtow">
+          <div id="pic1"></div>
+        </div>
+
+        <div class="flowtow">
+          <div id="pic2"></div>
+        </div>
+
+        <div class="flowtow">
+          <div id="pic3"></div>
+        </div>
+        </div>
+        </div>
+      </div>
+
+      <div id="top">
+        <div class="bob-container"> 
+        <div class="bob-row">
+        <div class="twoItem">
+        <h2 >Recent Posts</h2>
+        <div id="recentPost">
+          <p>Recent posts</p>
+        </div>
+        
+        </div>
+  
+        <div class="twoItem">
+          <h2 >Popular Posts</h2>
+        <div id="popularPost">
+          <p>Popular posts</p>
+        </div>
+        </div>
+      </div>
+      </div>
+      </div>
+
+    </div>
+
+    <div id="/whatis">
+      <div id="whatis">
+        <h2>What is FlowTow?</h2>
+        <p>FlowTow is a new, exciting, photo sharing service like nothing you've seen before!</p>
+        <p>FlowTow will support logging in users, posting images, making comments and viewing images in various ways.
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <footer>
+
+    <div id="social">
+      <ul>
+        <li id="social-twitter"><a href="#" class="fa fa-twitter"></a></li>
+        <li id="social-facebook"><a href="#" class="fa fa-facebook"></a></li>
+        <li id="social-instagram"><a href="#" class="fa fa-instagram"></a></li>
+      </ul>
+    </div>
+
+    <ul class="footer-tos">
+      <li><a href="#">Terms</a></li>
+      <li><a href="#">Privacy</a></li>
+      <li><a href="#">Cookies</a></li>
+    </ul>
+
+    <p id="copyright">All content and images subject to copyright &copy; COMP2110/6110 FlowTow 2021.</p>
+  </footer>
+
+
+
+  <!-- Templates -->
+  <script>
+    function toR() {
+     window.location.reload();
+     
+    }
+  </script>
+
+  
+  <script>
+      function toU() {
+        location.href='http://localhost:1337/#';
+       
+      }
+ </script>
+
+
+  <script id="list-template" type="text/x-handlebars-template">
+    
+    <table style="border-collapse: collapse;">
+        {{#each pic}}
+        
+        <tr style="border-bottom: 1px solid #ddd;">
+        {{#if p_image.url}}
+        <th  class="p_name" data-id={{id}} ><img  src="{{p_image.url}}"></th>
+        {{else}}
+        <th  class="p_name" data-id={{id}} ><img  src="{{p_url}}"></th>
+        {{/if}}   
+      
+          <th > {{p_caption}} </th> <th> by </th><th style="border-bottom: 1px solid #ddd;"> {{p_author.username}} </th>  
+          <th > {{published_at}}</th> <th  class="p_num" data-id={{id}}> {{p_likes}} </th>
+          <th ><button class="p_like" data-id={{id}} type="button" value="Like"><i class=" fa fa-thumbs-up" ></i>Like</button> </th></tr>
+         {{/each}}
+    </table>
+  </script>
+
+
+
+  <script id="allPosts-template" type="text/x-handlebars-template">
+    <h2 style="text-align: center; color: rgb(33, 72, 143);">All posts</h2>
+
+
+    <table style="border-collapse: collapse; width: 100%;" >
+        <!-- {{#each pic}}
+          <tr>
+            <th class="p_name" data-id={{id}} ><img  src="{{p_url}}"></th> 
+            <th class="p_cap" data-id={{id}} > {{p_caption}} </th>  
+            <th> {{published_at}} </th> 
+            <th> {{p_likes}} </th>
+            {{#each pic.comment.content}}
+            <th> 
+              <p  data-id={{id}}>{{.}}</p>
+            </th>
+            {{/each}}
+          </tr>
+         {{/each}} -->
+    </table>
+  </script>
+
+
+  <script id="myposts-template" type="text/x-handlebars-template">
+    <h2 style="text-align: center; color:rgb(33, 72, 143);">My posts</h2>
+
+    <form id="addpost-form">
+      <lable for=p_url> New post(URL) </lable>
+      <input name=p_url>
+      <label for=p_caption> Caption</label>
+      <input name=p_caption>
+      <input type=submit value="Create a Post">
+    </form>
+
+    <form id="addimage-form">
+      <label for=p_image> OR Picture: </label>
+      <input name=p_image type=file accept=image/*>
+      <label for=p_caption> Caption</label>
+      <input name=p_caption>
+      <input type=submit value="Create a Post">
+    </form>
+
+    <center><table style="border-collapse: collapse; width:100%">
+        {{#each pic}}
+          <tr style="border-bottom: 1px solid #ddd;">
+
+              {{#if p_image.url}}
+              <th class="p_name" data-id={{id}} ><img width="80px" height="70px"  src="{{p_image.url}}"></th>
+              {{else}}
+              <th  class="p_name" data-id={{id}} ><img width="80px" height="70px"  src="{{p_url}}"></th>
+             {{/if}} 
+        
+            <th > {{p_caption}} </th>  
+            <th > {{published_at}} </th> 
+            <th > {{p_likes}} </th>
+            <th ><button class="p_like" data-id={{id}} type="button" value="Like"><i class=" fa fa-thumbs-up" >Like</i></button> </th>
+            <th ><button class="delete" data-id={{id}} type="button" value="Delete"><i class="fa fa-trash"></i> Delete</button> </th>
+          </tr>
+         {{/each}}
+    </table></center>
+  </script>
+
+  <script id="post-template" type="text/x-handlebars-template">
+    <table>
+      {{#each pos}}
+        <tr>
+          {{#if p_image.url}}
+          <th class="p_name" data-id={{id}} ><img  src="{{p_image.url}}"></th>
+          {{else}}
+          <th class="p_name" data-id={{id}} ><img  src="{{p_url}}"></th>
+         {{/if}}  
+          
+          
+        <th class="p_cap" data-id={{id}} > {{p_caption}} </th> <th> by </th><th> {{p_author.username}} </th>  
+        <th> {{published_at}} </th><th> {{comments.c_content}} </th></tr>
+      
+    {{/each}}
+  </table>
+  
+ 
+  </script>
+
+  <script id="picture-template" type="text/x-handlebars-template">
+    <center><table>
+          <tr>
+             
+            {{#if p_image.url}}
+            <th colspan="4" class="p_name" data-id={{id}} ><img width="350px" height="350px" src="{{p_image.url}}"></th>
+            {{else}}
+            <th colspan="4" class="p_name" data-id={{id}} ><img src="{{p_url}}"></th>
+           {{/if}} 
+            
+          </tr>
+          <tr><th>{{p_caption}} </th> <th> by </th> <th> {{p_author.username}} </th>  <th> {{p_likes}} </th> </tr>
+    
+    </table></center>
+  </script>
+
+
+  <script id="single-template" type="text/x-handlebars-template">
+    <center><table>
+        <tr>
+          {{#if p_image.url}}
+          <th colspan="4" class="p_name" data-id={{id}} ><img width="300px" height="300px"  src="{{p_image.url}}"></th>
+          {{else}}
+          <th colspan="4" class="p_name" data-id={{id}} ><img  src="{{p_url}}"></th>
+         {{/if}} 
+        
+        </tr>
+          <tr><th>{{p_caption}} </th> <th> by </th> <th> {{p_author.username}} </th> <th> {{published_at}} </th> </tr>
+          <tr>
+            <th colspan="3"  class="p_num" data-id={{id}}> {{p_likes}} </th>
+            <th><button class="p_like" data-id={{id}} type="button" value="Like"><i class=" fa fa-thumbs-up" ></i>Like</button> </th>
+          </tr>
+           <tr><th colspan="4" id="comment"></th></tr> 
+ 
+    </table>
+    <form id="commentform" >
+      <lable for=c_content> Comment </lable>
+      <input name=c_content>
+      <lable for=c_post> </lable>
+      <input type=submit value="Add a Comment">
+    </form>
+    
+  </center>
+  </script>
+
+  <script id="comment-template" type="text/x-handlebars-template">
+
+         <ul>
+        {{#each pic.p_comment}}
+          <li> {{c_content}}</li>
+        {{/each}}
+        </ul>
+      
+  </script>
+
+  
+
+ 
+  <script id="login-template" type="text/x-handlebars-template">
+  {{#if user}}
+   <p>Login in as {{user.username}}</p>
+  {{else}}
+    {{#unless untouched}}
+      <p>Login failed,please try agian</p>
+      
+    {{/unless}}
+    <form id="login-form">
+    User<input name=user>
+    Password<input name=password type="password" autocomplete="on">
+    <input type=submit value="login">
+    </form>
+  {{/if}}
+  </script>
+
+</body>
+
+</html>

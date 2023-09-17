@@ -1,0 +1,271 @@
+/* please add your own style */
+
+/* sample spreadshet - you should replace all of this! */
+
+
+body{ 
+    background-color:#ebfafa;
+    padding: 0;
+    margin: 0;
+}
+
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+     box-sizing: border-box;
+}
+header {
+    background-color: #136b6b;
+    font-weight: bold;    
+    margin-bottom: 10px;
+    
+}
+
+nav ul{
+    list-style-type: none;
+    font-size: 18px;
+    font-family:monospace;
+    margin: 0;
+    padding-left: 35%;
+    overflow: hidden;
+    
+    
+}
+nav ul li{
+    float: left;
+}
+nav a{
+    display: block;
+    color: #ffffff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+nav a:hover{
+    background-color: #ebfafa;
+    color:navy;
+    
+}
+
+#top h2{
+    text-align: center;
+    color: rgb(33, 72, 143);
+}
+
+#heading {
+    text-align: center;
+    color: rgb(50, 50, 175);
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+
+}
+
+
+#whatis {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color:#ebfafa;
+    padding: 10px;  
+    padding-left: 20px;  
+    text-align: center;
+    
+}
+
+#whatis h2{
+   color: rgb(33, 72, 143);;
+    
+}
+#whatis p{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    text-align: center;
+}
+
+#pic1 table, #pic2 table, #pic3 table{
+    width:auto;
+}
+
+#top{
+    display: flex;
+    flex-direction: row;
+}
+
+#recentPost{
+    margin-left: 10%;
+}
+#popularPost{
+    margin-left: 5%;
+}
+#recentPost img, #popularPost img{
+    width: 40px;
+    height: 30px;
+}
+
+
+footer {
+    background-color:  #136b6b;
+    text-align: center;
+    display: grid;
+    grid-template-columns: auto;
+   
+}
+
+#social{
+    float: left;
+    grid-row: 1;
+    
+}
+.footer-tos{
+   
+    float:right;
+    grid-row: 1;
+   
+}
+
+#copyright{
+    grid-column: 1 / 3;
+    grid-row: 2;
+    font-size: 20px;
+    color: #ffffff;
+}
+footer ul li{
+    list-style-type: none;
+    display: inline;
+    margin-right: 100px;
+}
+
+.footer-tos {
+    font-family:monospace;
+    padding: 20px;
+    padding-top: 30px;
+    font-size: 18px;
+    text-decoration: none;
+    margin: 5px 2px;
+   
+}
+
+.footer-tos a{
+    color: #ffffff;
+    text-decoration: none;
+   
+}
+.footer-tos a:hover{
+    color: lightblue;
+}
+
+
+
+.fa-thumbs-up{
+    font-size: 30px;
+    cursor: pointer;
+    user-select: none;
+}
+
+
+  
+.fa:hover {
+    opacity: 0.7;
+}
+  
+.fa-facebook {
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+
+    background: #3B5998;
+    color: white;
+}
+  
+.fa-twitter {
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+
+    background: #55ACEE;
+    color: white;
+}
+
+.fa-instagram {
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+
+    background: #125688;
+    color: white;
+}
+
+
+
+
+
+.bob-container{
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  .bob-row{
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+  
+  .bob-row:before,.bob-row:after{
+    display: table;
+    content: " ";  
+  }
+  
+  .bob-row:after{
+    clear: both;
+  }
+/*2個並排 不管在任何尺寸都會2個並排*/
+.twoItem{
+    width:100%;
+  }
+  /*3個並排 在767px以下會垂直排列*/
+.flowtow{
+    width: 100%;
+}
+
+.twoItem, .flowtow{
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    float:left;
+}
+  
+.twoItem img, .flowtow img{
+    width:100%;
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .flowtow{
+      width: 33.33333333%;
+    }
+   
+}
+@media (min-width: 768px) {
+    .twoItem{
+      width: 50%;
+    }
+   
+}
+@media (min-width: 992px) {
+    .bob-container {
+      width: 970px;
+    }
+}
+@media (min-width: 1200px) {
+    .bob-container {
+      width: 1170px;
+}
+}
